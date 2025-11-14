@@ -13,6 +13,11 @@ combinedStringList = stringList ++ ["date", "elderberry"]
 consNumberList = 3 : numberList
 consStringList = "apricot" : stringList
 
+-- if you want to get an element out of a list, you can use list by index, use !!. The index is zero-based.
+-- For example, to get the first element of numberList, you would use numberList !! 0
+indexFromListSteve = "Steve Jobs" !! 3 -- This will return 'e'
+indexFromListNumbers = [9.4,33.2,96.2,11.2,23.25] !! 1  -- This will return 33.2
+
 main :: IO ()
 main = do
     print numberList 
@@ -21,3 +26,5 @@ main = do
     print combinedStringList
     print consNumberList
     print consStringList
+    print indexFromListSteve
+    print indexFromListNumbers
