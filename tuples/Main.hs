@@ -6,6 +6,10 @@ main = do
     let tuple5 = (("first", 1), ("second", 2))    -- A tuple of tuples
     let tuple6 = (42,)                             -- A single-element tuple
     let tuple7 = ()                                -- An empty tuple (unit type)
+    let tuple8 = (1, 2, 3, 4, 5, 6, 7, 8)            -- An 8-element tuple
+    let tuple9 = [(1,2),("One",2)]                     -- A list of tuples, though not a tuple itself
+    let tuple10 = ((1, "a"), (2, "b"), (3, "c"))     -- A tuple with three elements, each a tuple
+    let tuple11 = ("Christopher", "Walken", 55)  -- A tuple representing a person's name and age
 
     print tuple1
     print tuple2
@@ -14,3 +18,7 @@ main = do
     print tuple5
     print tuple6
     print tuple7
+    print tuple8
+    print tuple9
+    print tuple10
+    print tuple11
