@@ -4,10 +4,9 @@ main = do
     let tuple3 = ("Haskell", 2024, 3.5, False)    -- A tuple with mixed types
     let tuple4 = ((1,2), (3,4))                   -- A nested tuple
     let tuple5 = (("first", 1), ("second", 2))    -- A tuple of tuples
-    let tuple6 = (42,)                             -- A single-element tuple
     let tuple7 = ()                                -- An empty tuple (unit type)
     let tuple8 = (1, 2, 3, 4, 5, 6, 7, 8)            -- An 8-element tuple
-    let tuple9 = [(1,2),("One",2)]                     -- A list of tuples, though not a tuple itself
+    let tuple9 = [("1",2),("One",2)]                     -- A list of tuples, though not a tuple itself
     let tuple10 = ((1, "a"), (2, "b"), (3, "c"))     -- A tuple with three elements, each a tuple
     let tuple11 = ("Christopher", "Walken", 55)  -- A tuple representing a person's name and age
     let tuple12 = fst tuple1                     -- Accessing the first element of tuple1
@@ -19,7 +18,6 @@ main = do
     print tuple3
     print tuple4
     print tuple5
-    print tuple6
     print tuple7
     print tuple8
     print tuple9
