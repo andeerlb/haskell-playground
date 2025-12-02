@@ -39,3 +39,14 @@ head :: [a] -> a
 ```
 Type variable. is much like generics in other languages, only in Haskell it's much more powerful because it allows us to easily write very general functions if they don't use any specific behavior of the types in them. Functions that have type variables are called polymorphic functions. The type declaration of head states that it takes a list of any type and returns one element of that type.
 
+# Typeclasses 
+A typeclass is a sort of interface that defines some behavior. If a type is a part of a typeclass, that means that it supports and implements the behavior the typeclass describes.  
+You can think of them kind of as Java interfaces, only better.
+```
+ghci> :t (==)  
+(==) :: (Eq a) => a -> a -> Bool  
+```
+
+> Note: the equality operator, == is a function. So are +, *, -, / and pretty much all operators. If a function name comprises only special characters, it's considered an infix > function by default. If we want to examine its type, pass it to another function or call it as a prefix function, we have to surround it in parentheses.
+
+Interesting. We see a new thing here, the `=>` symbol. Everything before the `=>` symbol is called a **class constraint**. We can read the previous type declaration like this: the equality function takes any two values that are of the same type and returns a Bool. The type of those two values must be a member of the Eq class (this was the **class constraint**).
