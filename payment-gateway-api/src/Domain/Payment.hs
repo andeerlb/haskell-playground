@@ -3,12 +3,14 @@ module Domain.Payment
   , Amount(..)
   , PaymentMethod(..)
   , Payment(..)
-  , mkAmount
+  , mkAmount -- exporting the smart constructor
   ) where
 
 import Data.UUID (UUID)
 import Domain.Errors
 
+-- newtype is used to create a distinct type from an existing type.
+-- Here, PaymentId wraps a UUID to represent a unique identifier for payments.
 newtype PaymentId =
   PaymentId UUID
   deriving (Show, Eq)
@@ -19,8 +21,8 @@ newtype Amount =
 
 data PaymentMethod
   = CreditCard
-  | Pix
-  | Boleto
+  | BankTransfer
+  | Check
   deriving (Show, Eq)
 
 data Payment = Payment
@@ -28,9 +30,11 @@ data Payment = Payment
   , paymentUserId :: UUID
   , paymentAmount :: Amount
   , paymentMethod :: PaymentMethod
-  } deriving (Show, Eq)
+  } deriving (Show, Eq) -- { .. } syntax is used for record syntax in Haskell, allowing named fields. Similar to structs in other languages.
 
-mkAmount :: Double -> Either DomainError Amount
-mkAmount value
-  | value > 0 = Right (Amount value)
-  | otherwise = Left InvalidAmount
+-- Smart constructor for Amount to ensure it's positive
+mkAmount :: Double -> Either DomainError Amount -- returns Either an error or a valid Amount, Either is used for computations that can fail, with Left representing failure and Right representing success.
+-- :: is the type annotation operator in Haskell, used to specify the type of a function or value.
+mkAmount value -- value is the input parameter of type Double
+  | value > 0 = Right (Amount value) -- Right constructor indicates success, Right is needed to wrap the successful result
+  | otherwise = Left InvalidAmount -- Left constructor indicates failure with a DomainError, Left is used to wrap the error value
