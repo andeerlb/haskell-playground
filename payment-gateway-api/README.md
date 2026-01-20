@@ -14,7 +14,8 @@ The goal is not to build a production-ready payment system, but to practice **fu
 * Model business rules using **strong types**
 * Handle errors with `Either` and `Maybe` (no exceptions)
 * Separate **domain**, **application**, and **infrastructure** layers
-* Understand and apply `ReaderT`, `IO`, and monadic composition
+* Understand and apply `ReaderT`, `IO`
+* Understand and apply [monadic composition](https://www.youtube.com/watch?v=_Gk_lwhJMzk)
 
 ---
 
